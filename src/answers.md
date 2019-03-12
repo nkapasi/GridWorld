@@ -51,6 +51,23 @@
     3. It can be used in the extended bug flower and rock class
     4. No there can only be one location for each actor
     5. setDirection() or call turn() twice
+6.
+    1.1) 
+    a. The jumper will jump to the location in front that is empty.
+    b. The jumper will only jump to the location in front.
+    c. The jumper will turn 90 degrees to the right until it finds an open location.
+    d. It would check if the cell in front is empty then jump one cell then it would skip the   actor.
+    e. It would treat the jumper like any other actor.
+    f. No.
+    2)
+    a. It would extend the bug class
+    b. Yes the bug class.
+    c. Yes it would need a color and direction
+    d. No.
+    e. canJump() & jump() & turn90();
+    f. Test all scenarios.
+
+
 7. 
     1. act(), getActors(), processActors(), getMoveLocations(), selectMoveLocation(), makeMove()
     2. getActors(), processActors(), getMoveLocations(), selectMoveLocation(), makeMove()
