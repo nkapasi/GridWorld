@@ -38,8 +38,11 @@ public class ChameleonCritter extends Critter {
 	 */
 	public void processActors(ArrayList<Actor> actors) {
 		int n = actors.size();
-		if (n == 0)
+		if (n == 0){
+			
+			
 			return;
+		}
 		int r = (int) (Math.random() * n);
 
 		Actor other = actors.get(r);
@@ -52,5 +55,40 @@ public class ChameleonCritter extends Critter {
 	public void makeMove(Location loc) {
 		setDirection(getLocation().getDirectionToward(loc));
 		super.makeMove(loc);
+
 	}
+	private static final double DARKENING_FACTOR = 0.05;
+
+	//Use the code found in the Flower class to darken a ChameleonCritter when it has no neighbors.
+	//This code has been put in a method, darken.
+	/**
+	 * Randomly selects a neighbor and changes this critter's color to be the
+	 * same as that neighbor's. If there are no neighbors, no action is taken.
+	 */
+	public void processActors(ArrayList<Actor> actors)
+	{
+	 int n = actors.size();
+	 if (n == 0)
+	 {
+	 darken();
+	 return;
+	 }
+	
+	 int r = (int) (Math.random() * n);
+	 Actor other = actors.get(r);
+	 setColor(other.getColor());
+	}
+	
+	/**
+	 * Darkens this critter's color by DARKENING_FACTOR.
+	 */
+	private void darken()
+	{
+	 Color c = getColor();
+	 int red = (int) (c.getRed() * (1 - DARKENING_FACTOR));
+	 int green = (int) (c.getGreen() * (1 - DARKENING_FACTOR));
+	 int blue = (int) (c.getBlue() * (1 - DARKENING_FACTOR));
+	 setColor(new Color(red, green, blue));
+	} 	
+	
 }
